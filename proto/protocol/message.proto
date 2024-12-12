@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+option go_package = "github.com/zaoshi-studio/grpc-stream-chat/pb/protocol";
+
+package protocol;
+
+service Chat {
+  rpc Say(stream SayReq) returns (stream SayRsp);
+}
+
+message SayReq {
+  string content = 1;
+}
+message SayRsp {
+  string content = 1;
+  string sayer = 2;
+}
